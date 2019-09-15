@@ -80,35 +80,3 @@ Entrada A	Entrada B	Saída
 1		0		1
 1		1		1
 </pre>
-
-## Projeto final
-
-Podemos treinar uma rede neural também com duas saídas, se tivermos dois neurônios independentes e conhecermos a saída esperada de cada um deles separadamente para cada conjunto de entrada. Para respondar nossa questão proposta, "<b>produzo mais alimento?</b>" vamos imaginar um cenário simplificado de nosso antigo projeto:
-	
-### Primeira parte:
-
-- O estoque de alimento varia de 0% a 100%;
-- O número de famintos varia de 0 a 10.
-
-Nessa primeira etapa, queremos que 1 signifique "atenção" e -1 signifique "tranquilo". Nossas regras são simples:
-- Se estoque de alimento for menor 50%, significa atenção;
-- Se o número de famintos for maior ou igual a 5, significa atenção.
-
-Construimos uma rede com duas entradas e dois neurônios, chamaremos de rede 1.
-
-### Segunda Parte
-
-A partir dos resultados obtidos pela rede 1, estabelecemos o seguinte conjunto de regras para definir se vamos produzir ou não alimento:
-<pre>
-Comida		Colonos		Produz alimento?
-Tranquilo	Tranquilo	Não
-Tranquilo	Atenção		Sim
-Atenção		Tranquilo	Sim
-Atenção		Atenção		Sim
-</pre>
-
-Se prestar atenção, é idêntico a tabela verdade da porta OR, então tudo que precisamos é utilizar as saidas de nossa atual rede como entradas pra rede da porta lógica OR. Então ficamos com a seguinte rede neural:
-
-![Imagem de uma rede neural](https://github.com/SapoGitHub/Repositorio-Geral/blob/master/Perceptron/imagens/final.png)
-
-Onde as flechas mais grossas entre as redes indica uma entrada dupla.
