@@ -9,7 +9,7 @@ import pygame, sys, random      #Biblioteca usada na criação de aplicações m
 from pygame.locals import *     #Várias constantes usadas pelo pygame
 
 # 1 - CONFIGURAÇÃO --------------------------------------------------------------------------------
-pygame.init()                   # Inicialisa todos o módulos importados do pygame
+pygame.init()                   # Inicializar todos o módulos importados do pygame
 Relogio = pygame.time.Clock()   # Cria um objeto pra ajudar a rastrear o tempo
 LARGURA = 1020                  # Largura da tela
 ALTURA = 600                    # Altura da tela
@@ -18,9 +18,9 @@ pygame.display.set_caption('Fase 1')                # Coloca um título para a t
 
 QPS=120                         # Quadros por segundo
 Ligado =  False                 # Variáveis de controle
-f=100                           # Fator de escala (f pixel/m)
-g=f*9.81                        # Gravidade (convertida para pixel / s²)
-dT=0.2/f                        # Intervalo dos passos (m*s/pixel*quadro)
+f=100
+g=9.81                        # Gravidade (convertida para pixel / s²)
+dT=1/100                        # Intervalo dos passos (m*s/pixel*quadro)
 
 # Algumas cores
 BRANCO = (255, 255, 255)
@@ -29,8 +29,8 @@ VERDE  = (0, 255, 0)
 #Vamos definir nosso projétil
 class Projetil:                 # A classe projetil
     def __init__(self):
-        self.vx = 0             # Sua velocidade no eixo x (em pixel/s)
-        self.vy = 0             # Sua velocidade no eixo y (em pixel/s)
+        self.vx = 45             # Sua velocidade no eixo x (em pixel/s)
+        self.vy = 45            # Sua velocidade no eixo y (em pixel/s)
         self.pos = (15,580)     # Sua localização
         self.raio=5
         
@@ -49,17 +49,17 @@ while True:
                                     
 # 3 - Motor de Física ---------------------------------------------------------------------------
     if (Ligado):
-        p.pos = ((p.pos[0]+p.vx*dT),p.pos[1])            # MRU
-        p.pos = (p.pos[0], p.pos[1]-p.vy*dT-g*(dT*dT)/2) # MRUV
-        p.vy=p.vy-g*dT                                   # MRUV
+        p.pos = ((p.pos[0]+p.vx*dT),p.pos[1]-p.vy*dT-g*(dT*dT)/2) # MRU
+        p.vy=p.vy-g*dT                                            # MRUV
 
 # 4 - Atualização da Tela ----------------------------------------------------------------------
     # Pinta o fundo
     Janela.fill(BRANCO)             # Preenche a superfície com uma cor sólida
 
-    #Pinta o projétil
+    #Pinta o projé til
     pygame.draw.circle(Janela, VERDE, (int(p.pos[0]),int(p.pos[1])), p.raio)
 
     # Desenha a tela final
     pygame.display.update()                     # Atualiza porções da tela
     Relogio.tick(QPS)                           # Coloca um máximo de 40fps
+
