@@ -1,10 +1,10 @@
 /*
 PERCEPTRON: Projeto final
-##Desenvolvido por:     Jhordan Silveira de Borba
-##E-mail:               jhordandecacapava@gmail.com
-##Website:              https://sapogithub.github.io
-##Mais informações:     https://github.com/SapoGitHub/Repositorio-Geral/wiki/Perceptron
-##2018
+Desenvolvido por:    Jhordan Silveira de Borba
+E-mail:              jhordandecacapava@gmail.com
+Website:             https://github.com/SapoGitHub
+                     https://alkasl.wordpress.com   
+2018
 */
 
 #include <stdio.h>		//Biblioteca padrão de entradas e saídas

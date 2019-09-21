@@ -1,9 +1,9 @@
-##DARWIN
-##Desenvolvido por:     Jhordan Silveira de Borba
-##E-mail:               jhordandecacapava@gmail.com
-##Website:              https://sapogithub.github.io
-##Mais informações:     https://github.com/SapoGitHub/Repositorio-Geral/wiki/Darwin
-##2018
+## DARWIN
+## Desenvolvido por:    Jhordan Silveira de Borba
+## E-mail:              jhordandecacapava@gmail.com
+## Website:             https://github.com/SapoGitHub
+##                      https://alkasl.wordpress.com   
+## 2018
 
 import random   #Biblioteca para utilizar os comandos aleatorios
 

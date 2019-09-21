@@ -1,9 +1,9 @@
-##PROJETO DIFUSO
-##Desenvolvido por:     Jhordan Silveira de Borba
-##E-mail:               jhordandecacapava@gmail.com
-##Website:              https://sapogithub.github.io
-##Mais informações:     https://github.com/SapoGitHub/Repositorio-Geral/wiki/Projeto-Difuso
-##2018
+## PROJETO DIFUSO
+## Desenvolvido por:    Jhordan Silveira de Borba
+## E-mail:              jhordandecacapava@gmail.com
+## Website:             https://github.com/SapoGitHub
+##                      https://alkasl.wordpress.com   
+## 2018
 
 #Importar bibliotecas
 import numpy as np                  #Numpy para operações matemáticas

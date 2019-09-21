@@ -1,9 +1,9 @@
-##PERCEPTRON: Flappy Fantasma - Gráfico de visualização
-##Desenvolvido por:     Jhordan Silveira de Borba
-##E-mail:               jhordandecacapava@gmail.com
-##Website:              https://sapogithub.github.io
-##Mais informações:     https://github.com/SapoGitHub/Repositorio-Geral/wiki/Flappy-Fantasma
-##2018
+## PERCEPTRON: Flappy Fantasma - Gráfico de visualização
+## Desenvolvido por:    Jhordan Silveira de Borba
+## E-mail:              jhordandecacapava@gmail.com
+## Website:             https://github.com/SapoGitHub
+##                      https://alkasl.wordpress.com   
+## 2018
 
 
 import matplotlib.pyplot as plt             #Biblioteca para plotar gráficos
