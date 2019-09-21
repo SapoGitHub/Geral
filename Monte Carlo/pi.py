@@ -1,4 +1,4 @@
-## Código simples de MRUV
+## Raio do Círculo por Monte Carlo
 ## Desenvolvido por:    Jhordan Silveira de Borba
 ## E-mail:              jhordandecacapava@gmail.com
 ## Website:             https://github.com/SapoGitHub
@@ -11,7 +11,7 @@ from pygame.locals import *     #Várias constantes usadas pelo pygame
 # 1 - CONFIGURAÇÃO --------------------------------------------------------------------------------
 pygame.init()                   # Inicializar todos o módulos importados do pygame
 Relogio = pygame.time.Clock()   # Cria um objeto pra ajudar a rastrear o tempo
-LARGURA = 1020                  # Largura da tela
+LARGURA = 600                   # Largura da tela
 ALTURA = 600                    # Altura da tela
 Janela = pygame.display.set_mode((LARGURA, ALTURA)) # Inicializa uma tela para exibit
 pygame.display.set_caption('Fase 1')                # Coloca um título para a tela
