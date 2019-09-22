@@ -9,7 +9,6 @@ import random       # Biblioteca com números pseudo aleatórios
 import numpy as np  # Biblioteca para trabalhar com funções matemáticas
 import matplotlib.pyplot as plt     # Biblioteca pra plotar gráfico
 
-L=1                              # Raio do Círculo
 
 #Listas com as coordenadas dos pontos dentro e fora
 x_fora=[]
@@ -25,7 +24,7 @@ for i in range(N):
     y = random.random()
     d=np.sqrt(x*x+y*y)
     
-    if (d<L):                       # Checamos se caiu dentro do círculo
+    if (d<=1):                       # Checamos se caiu dentro do círculo
         dentro= dentro+1            # E anotamos
         x_dentro.append(x)
         y_dentro.append(y)
@@ -34,7 +33,7 @@ for i in range(N):
         y_fora.append(y)
 
 pi = 4*(float(dentro)/float(N))
-print(str (pi) + ' - '+ str(pi/3.14159265359) + '% do valor correto.')
+print(str (pi) + ' - Erro: '+ str(abs(1-pi/np.pi)) + '% do valor correto.')
 
 
 n=1000                              # Fração que vamos plotar N/n
@@ -59,13 +58,11 @@ for i in range(int(N/n)):
 plt.plot(py_den, px_den, 'ro' ,label='Dentro')      # Pontos dentro
 plt.plot(py_for, px_for, 'bo' ,label='Fora')        # Pontos fora
 
-x=np.linspace(0, L, 1000)                          # x
-plt.plot(np.sqrt(L*L-x*x),x, 'black')               # Parte positiva da raíz
-#plt.plot(-np.sqrt(L*L-x*x),x, 'black')              # Parte negativa da raíz
+x=np.linspace(0, 1, 1000)                           # x
+plt.plot(np.sqrt(1-x*x),x, 'black')               # Parte positiva da raíz
 
 # Configurações                 
 plt.xlabel('x')                 # Legenda eixo X
 plt.ylabel('y')                 # Legenda eixo y
 plt.title("Monte Carlo")        # Título
-#plt.legend()                    # Plotamos a legenda
 plt.show()                      # Mostramos o gráfico
