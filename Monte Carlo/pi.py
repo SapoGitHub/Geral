@@ -4,62 +4,68 @@
 ## Website:             https://github.com/SapoGitHub
 ##                      https://alkasl.wordpress.com   
 ## 2019
+##
+import random       # Biblioteca com números pseudo aleatórios
+import numpy as np  # Biblioteca para trabalhar com funções matemáticas
+import matplotlib.pyplot as plt     # Biblioteca pra plotar gráfico
 
-import pygame, sys, random      #Biblioteca usada na criação de aplicações multimídia
-from pygame.locals import *     #Várias constantes usadas pelo pygame
+L=5000                              # Raio do Círculo
 
-# 1 - CONFIGURAÇÃO --------------------------------------------------------------------------------
-pygame.init()                   # Inicializar todos o módulos importados do pygame
-Relogio = pygame.time.Clock()   # Cria um objeto pra ajudar a rastrear o tempo
-LARGURA = 600                   # Largura da tela
-ALTURA = 600                    # Altura da tela
-Janela = pygame.display.set_mode((LARGURA, ALTURA)) # Inicializa uma tela para exibit
-pygame.display.set_caption('Fase 1')                # Coloca um título para a tela
+#Listas com as coordenadas dos pontos dentro e fora
+x_fora=[]
+x_dentro=[]
+y_fora=[]
+y_dentro=[] 
 
-QPS=120                         # Quadros por segundo
-Ligado =  False                 # Variáveis de controle
-f=100
-g=9.81                        # Gravidade (convertida para pixel / s²)
-dT=1/100                        # Intervalo dos passos (m*s/pixel*quadro)
+dentro=0                            # Quantidade de pontos dentro
+N=100000                            # Quantidade de pontos gerados
 
-# Algumas cores
-BRANCO = (255, 255, 255)
-VERDE  = (0, 255, 0)
+for i in range(N):
+    x = random.randint(-L,L)
+    y = random.randint(-L,L)
+    d=np.sqrt(x*x+y*y)
+    
+    if (d<L):                       # Checamos se caiu dentro do círculo
+        dentro= dentro+1            # E anotamos
+        x_dentro.append(x)
+        y_dentro.append(y)
+    else:
+        x_fora.append(x)
+        y_fora.append(y)
 
-#Vamos definir nosso projétil
-class Projetil:                 # A classe projetil
-    def __init__(self):
-        self.vx = 45             # Sua velocidade no eixo x (em pixel/s)
-        self.vy = 45            # Sua velocidade no eixo y (em pixel/s)
-        self.pos = (15,580)     # Sua localização
-        self.raio=5
-        
-p = Projetil()                  # Declaramos o objeto
+pi = 4*(float(dentro)/float(N))
+print(str (pi) + ' - '+ str(pi/3.14159265359) + '% do valor correto.')
 
-# 2 - ENTRADAS ------------------------------------------------------------------------------
-while True:
-    # Vamos checar por eventos
-    for evento in pygame.event.get():       # Pega eventos da fila
-        if evento.type == QUIT:             # Se tentou fechar o jogo
-            pygame.quit()                   # Fecha todos os módulos
-            sys.exit()                      # Sai do Python
-        if evento.type == KEYDOWN:          # Se apertou algum botão
-            if (evento.key == K_RETURN):    # E foi enter
-                Ligado=True
-                                    
-# 3 - Motor de Física ---------------------------------------------------------------------------
-    if (Ligado):
-        p.pos = ((p.pos[0]+p.vx*dT),p.pos[1]-p.vy*dT-g*(dT*dT)/2) # MRU
-        p.vy=p.vy-g*dT                                            # MRUV
 
-# 4 - Atualização da Tela ----------------------------------------------------------------------
-    # Pinta o fundo
-    Janela.fill(BRANCO)             # Preenche a superfície com uma cor sólida
+n=1000                              # Fração que vamos plotar N/n
 
-    #Pinta o projé til
-    pygame.draw.circle(Janela, VERDE, (int(p.pos[0]),int(p.pos[1])), p.raio)
+# Listas das coordenadas dos pontos que vamos plotar
+px_den=[]   
+py_den=[]
+px_for=[]
+py_for=[]
 
-    # Desenha a tela final
-    pygame.display.update()                     # Atualiza porções da tela
-    Relogio.tick(QPS)                           # Coloca um máximo de 40fps
+for i in range(int(N/n)):
+    den = random.randint(0,len(x_dentro))   # Sorteamos um elemento dentro
+    # Guardamos o ponto
+    px_den.append(x_dentro[den])
+    py_den.append(y_dentro[den])
+    # Fazemos o mesmo com 
+    den = random.randint(0,len(x_fora)) 
+    px_for.append(x_fora[den])
+    py_for.append(y_fora[den])
 
+# Plotamos os pontos 
+plt.plot(py_den, px_den, 'ro' ,label='Dentro')      # Pontos dentro
+plt.plot(py_for, px_for, 'bo' ,label='Fora')        # Pontos fora
+
+x=np.linspace(-L, L, 1000)                          # x
+plt.plot(np.sqrt(L*L-x*x),x, 'black')               # Parte positiva da raíz
+plt.plot(-np.sqrt(L*L-x*x),x, 'black')              # Parte negativa da raíz
+
+# Configurações                 
+plt.xlabel('x')                 # Legenda eixo X
+plt.ylabel('y')                 # Legenda eixo y
+plt.title("Monte Carlo")        # Título
+#plt.legend()                    # Plotamos a legenda
+plt.show()                      # Mostramos o gráfico
