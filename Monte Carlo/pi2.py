@@ -1,4 +1,4 @@
-## Raio do Círculo por Monte Carlo
+## Raio do Círculo por Monte Carlo #2
 ## Desenvolvido por:    Jhordan Silveira de Borba
 ## E-mail:              jhordandecacapava@gmail.com
 ## Website:             https://github.com/SapoGitHub
@@ -17,7 +17,7 @@ y_fora=[]
 y_dentro=[] 
 
 dentro=0                            # Quantidade de pontos dentro
-N=100000                            # Quantidade de pontos gerados
+N=1000000                            # Quantidade de pontos gerados
 
 for i in range(N):
     x = random.random()

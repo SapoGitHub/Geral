@@ -5,8 +5,9 @@
 ##                      https://alkasl.wordpress.com   
 ## 2019
 
-import pygame, sys, random      #Biblioteca usada na criação de aplicações multimídia
-from pygame.locals import *     #Várias constantes usadas pelo pygame
+import pygame                   # Biblioteca usada na criação de aplicações multimídia
+import sys                      # Biblioteca com funções relacionadas ao interpretador
+from pygame.locals import *     # Várias constantes usadas pelo pygame
 
 # 1 - CONFIGURAÇÃO --------------------------------------------------------------------------------
 pygame.init()                   # Inicializar todos o módulos importados do pygame
@@ -18,19 +19,19 @@ pygame.display.set_caption('MRUV')                # Coloca um título para a tel
 
 QPS=120                         # Quadros por segundo
 Ligado =  False                 # Variáveis de controle
-f=100
-g=9.81                        # Gravidade (convertida para pixel / s²)
-dT=1/100                        # Intervalo dos passos (m*s/pixel*quadro)
+g=9.81                          # Gravidade 
+dT=1/100                        # Intervalo dos passos 
 
 # Algumas cores
 BRANCO = (255, 255, 255)
 VERDE  = (0, 255, 0)
+VERMELHO = (255,0,0)
 
 #Vamos definir nosso projétil
 class Projetil:                 # A classe projetil
     def __init__(self):
-        self.vx = 45             # Sua velocidade no eixo x (em pixel/s)
-        self.vy = 45            # Sua velocidade no eixo y (em pixel/s)
+        self.vx = 40             # Sua velocidade no eixo x (em pixel/s)
+        self.vy = 100            # Sua velocidade no eixo y (em pixel/s)
         self.pos = (15,580)     # Sua localização
         self.raio=5
         
@@ -49,8 +50,8 @@ while True:
                                     
 # 3 - Motor de Física ---------------------------------------------------------------------------
     if (Ligado):
-        p.pos = ((p.pos[0]+p.vx*dT),p.pos[1]-p.vy*dT-g*(dT*dT)/2) # MRU
-        p.vy=p.vy-g*dT                                            # MRUV
+        p.pos = ((p.pos[0]+p.vx*dT),p.pos[1]-p.vy*dT-g*(dT*dT)/2) # Posição
+        p.vy=p.vy-g*dT                                            # Velocidade Y
 
 # 4 - Atualização da Tela ----------------------------------------------------------------------
     # Pinta o fundo
@@ -58,6 +59,7 @@ while True:
 
     #Pinta o projé til
     pygame.draw.circle(Janela, VERDE, (int(p.pos[0]),int(p.pos[1])), p.raio)
+    pygame.draw.circle(Janela, VERMELHO, (830,580), 10)                         #Alvo opcional
 
     # Desenha a tela final
     pygame.display.update()                     # Atualiza porções da tela
