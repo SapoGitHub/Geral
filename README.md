@@ -10,6 +10,6 @@ Segue abaixo uma pequena descrição do que se encontra em cada pasta.
 * [Perceptron](https://alkasl.wordpress.com/2019/09/21/rede-neural-perceptron-i/): Rede neural básicas do tipo perceptron
 * [Projeto Difuso](https://alkasl.wordpress.com/2019/10/05/logica-difusa-e-oxygen-not-included/): Exemplo básico de lógica difusa
 
-Faça bom proveito, e por qualquer motivo que seja, não existe entrar em contato.
+Faça bom proveito, e por qualquer motivo que seja, não exite em entrar em contato.
 
 Obrigado
