@@ -4,7 +4,7 @@
 ## Website:             https://github.com/SapoGitHub
 ##                      https://alkasl.wordpress.com   
 ## 2019
-##
+
 import random       # Biblioteca com números pseudo aleatórios
 import numpy as np  # Biblioteca para trabalhar com funções matemáticas
 import matplotlib.pyplot as plt     # Biblioteca pra plotar gráfico
