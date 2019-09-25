@@ -1,4 +1,4 @@
-## Mecânica Clássica #2
+## Mecânica Clássica #1
 ## Desenvolvido por:    Jhordan Silveira de Borba
 ## E-mail:              jhordandecacapava@gmail.com
 ## Website:             https://github.com/SapoGitHub
