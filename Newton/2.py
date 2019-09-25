@@ -1,4 +1,4 @@
-## Mecânica Clássica
+## Mecânica Clássica #2
 ## Desenvolvido por:    Jhordan Silveira de Borba
 ## E-mail:              jhordandecacapava@gmail.com
 ## Website:             https://github.com/SapoGitHub
@@ -22,9 +22,9 @@ pygame.display.set_caption('Corpos')                # Coloca um título para a t
 
 QPS=200                         # Quadros por segundo
 Ligado =  False                 # Variáveis de controle
-dT=1/200                        # Intervalo dos passos
+dT=1/100                        # Intervalo dos passos
 vmax= 100                       # Velocidade máxima inicial em cada eixo
-G = 100000/2                    # Constante gravitacional
+G = 10000                    # Constante gravitacional
 
 # Algumas cores
 BRANCO = (255, 255, 255)
@@ -43,15 +43,23 @@ class Corpos:                 # A classe Corpos
         self.m    = 1                                             # Massa
         
 
-n=10                        # Quantidade de corpos
+n=2                        # Quantidade de corpos
 c=[]                        # Lista de corpos
 for i in range(n):
     c.append(Corpos())      #Geramos nossos corpos
 
 #Nosso corpo especial
-#c[0].m=10000
-#c[0].raio=10
-#c[0].vx=c[0].vy=0
+c[0].m=100
+c[0].raio=10
+c[0].vx=0
+c[0].vy=0
+c[0].pos=(300,300)
+
+#
+c[1].pos=(300,200)
+c[1].vx=100
+c[1].vy=0
+c[1].m=1/10000000000000000000000
 
 # 2 - ENTRADAS ------------------------------------------------------------------------------
 while True:
@@ -109,6 +117,8 @@ while True:
             n=n-1               # Diminuimos a quantidade total
             m=m+1               # Os próximos elementos vão ser deslocados
             
+        print(np.sqrt((c[0].pos[0]-c[1].pos[0])*(c[0].pos[0]-c[1].pos[0])+(c[0].pos[1]-c[1].pos[1])*(c[0].pos[1]-c[1].pos[1])))
+
 # 4 - Atualização da Tela ----------------------------------------------------------------------
     # Pinta o fundo
     Janela.fill(BRANCO)                         # Preenche a superfície com uma cor sólida
